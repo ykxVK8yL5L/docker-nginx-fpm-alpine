@@ -2,18 +2,16 @@
 
 name: Security-scan
 
-# Controls when the action will run. 
 on:
-  schedule:
-    - cron: '0 3 * * *' # everyday at 03:00 UTC
-  pull_request:
-    branches: master
-  push:
-    branches: master
-    tags: '*'
-
-  # Allows you to run this workflow manually from the Actions tab
+  repository_dispatch:
   workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+#   watch:
+#     types: started
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
