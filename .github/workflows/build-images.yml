@@ -1,13 +1,15 @@
 name: Deploy multi-architecture Docker images for privatebin with buildx
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # everyday at midnight UTC
-  pull_request:
-    branches: master
-  push:
-    branches: master
-    tags: '*'
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+#   watch:
+#     types: started
 
 jobs:
   buildx:
