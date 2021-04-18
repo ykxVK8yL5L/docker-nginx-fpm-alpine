@@ -18,7 +18,7 @@ jobs:
       - name: Prepare
         id: prepare
         run: |
-          IMAGE=privatebin/nginx-fpm-alpine
+          IMAGE=ykxvk8yl5l/privatebin
           QEMU_PLATFORMS=linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le
           VERSION=${GITHUB_REF##*/}
           [ "${{ github.event_name }}" = "schedule" ] && VERSION=nightly
